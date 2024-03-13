@@ -5,6 +5,7 @@ import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
 import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Header from "@/components/Header";
 import "./Styles/header.scss"
+import SideBar from "@/components/SideBar";
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
@@ -21,7 +22,7 @@ export default async function Index() {
   const isSupabaseConnected = canInitSupabaseClient();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
+    <div className="flex-1 w-full flex flex-col  items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
          <h1 className="logo-text">Marketplace App</h1>
@@ -29,8 +30,8 @@ export default async function Index() {
         </div>
       </nav>
 
-      <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
-        <Header />
+      <div className="animate-in flex-1 flex flex-col  opacity-0 w-full ">
+        <SideBar />
         <main className="flex-1 flex flex-col gap-6">
           <h2 className="font-bold text-4xl mb-4">We are currently working on the project</h2>
         </main>
