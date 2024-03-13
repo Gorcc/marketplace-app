@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import FetchDataSteps from "@/components/tutorial/FetchDataSteps";
 import Header from "@/components/Header";
 import { redirect } from "next/navigation";
+import "../Styles/header.scss"
 
 export default async function ProtectedPage() {
   const supabase = createClient();
@@ -24,8 +25,8 @@ export default async function ProtectedPage() {
           user
         </div> */}
         <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-          <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-            <h1>Marketplace App</h1>
+          <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
+            <h1 className="logo-text">Marketplace App</h1>
             <AuthButton />
           </div>
         </nav>
@@ -39,17 +40,7 @@ export default async function ProtectedPage() {
       </div>
 
       <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
-        <p>
-          Powered by{" "}
-          <a
-            href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-            target="_blank"
-            className="font-bold hover:underline"
-            rel="noreferrer"
-          >
-            Supabase
-          </a>
-        </p>
+
       </footer>
     </div>
   );
