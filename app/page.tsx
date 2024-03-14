@@ -33,7 +33,7 @@ export default async function Index() {
       <div className="animate-in flex-1 flex flex-col  opacity-0 w-full ">
         <SideBar />
         <main className="flex-1 flex flex-col gap-6">
-          <h2 className="font-bold text-4xl mb-4">We are currently working on the project</h2>
+
         </main>
       </div>
 
