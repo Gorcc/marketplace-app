@@ -7,27 +7,22 @@ import SaleButton from "@/components/SaleButton"
 import { redirect } from "next/navigation";
 import "../Styles/header.scss";
 import SideBar from "@/components/SideBar";
+import CreateProfile from "@/components/CreateProfile"
 export default async function ProtectedPage() {
   const supabase = createClient();
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  const { data: existingUsers, error } = await supabase
-    .from("users")
-    .select()
-    .eq("id", user?.id)
-    .single();
 
- 
 
-  if (!existingUsers) {
-    const { data: newUser, error: insertError } = await supabase
-      .from("users")
-      .insert([{ id: user?.id, user_mail: user?.email }]);
+//   if (!existingUsers) {
+//     const { data: newUser, error: insertError } = await supabase
+//       .from("users")
+//       .insert([{ id: user?.id, user_mail: user?.email }]);
 
    
-  }
+  
 
   if (!user) {
     return redirect("/login");
@@ -37,7 +32,7 @@ export default async function ProtectedPage() {
     <div className="flex-1 w-full flex flex-col  items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
         <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
-          <h1 className="logo-text">Marketplace App</h1>
+          <a href="/" className="logo-text">Marketplace App</a>
           <div className="flex items-center gap-10">
           <SaleButton></SaleButton>
           <AuthButton />
@@ -46,8 +41,8 @@ export default async function ProtectedPage() {
         </div>
       </nav>
 
-      <div className="animate-in flex-1 flex flex-col  opacity-0 w-full ">
-        <SideBar />
+      <div className="animate-in flex-1 flex flex-col  opacity-0 w-full  ">
+        <CreateProfile user={user}></CreateProfile>
         <main className="flex-1 flex flex-col gap-6"></main>
       </div>
     </div>
