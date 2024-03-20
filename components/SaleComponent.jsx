@@ -5,6 +5,9 @@ import { createClient } from "@/utils/supabase/client";
 import Stack from "@mui/material/Stack";
 import CircularProgress from '@mui/material/CircularProgress';
 import "@/app/Styles/salecards.scss";
+
+
+
 const SaleComponent = () => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
