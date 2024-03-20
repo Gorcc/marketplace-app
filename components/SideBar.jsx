@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import "../app/Styles/SideBar.scss";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +38,7 @@ const SideBar = () => {
         >
           Phones ᐯ
         </a>
-      
+
         {menu && (
           <div className="secret-menu">
             <a href="">Iphone</a>
