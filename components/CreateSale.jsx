@@ -18,6 +18,7 @@ const CreateSale = ({ user }) => {
   const [tags, setTags] = useState([]);
   const [image, setImage] = useState(null);
   const [price, setPrice] = useState(0)
+  const [location, setLocation] = useState(null);
   const handleCreateSale = async () => {
     try {
       const avatarFile = image;
@@ -39,6 +40,7 @@ const CreateSale = ({ user }) => {
           user_id: user[0].id,
           tags: tags,
           price:price,
+          location:location,
           img_url: `${fileURL}${image.name}`
         },
       ]);
@@ -169,10 +171,24 @@ const CreateSale = ({ user }) => {
               }}
               className="mb-4"
             >
+
               <MenuItem value="Vehicle">Vehicle</MenuItem>
               <MenuItem value="Electronics">Electronics</MenuItem>
               <MenuItem value="Fashion">Fashion</MenuItem>
             </TextField>
+
+            <TextField
+                required
+                id="location"
+                label="Location"
+                variant="outlined"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                fullWidth
+                rows={1}
+                className="mb-4"
+            />
+
             <div className="tag-container flex flex-wrap mb-4">
               {tags.map((tag, index) => (
                 <span
