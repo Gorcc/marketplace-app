@@ -1,13 +1,17 @@
-.market-line{
-    margin-left: 15%;
-    background-color: rgb(20, 117, 14);
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: white;
+.market-line {
+  height: 100px;
+  width: 100%;
+
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 1080px;
+    height: 100%;
+    object-fit: contain;
+    
+    margin-left: 10%;
+ 
+  }
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import "@/app/Styles/marketline.scss"
+import marketLine from "../app/Styles/CRAZY.png"
 
 const MarketLine = () => {
   return (
     <div className='market-line'>
-        
-        <h2>Best prices in town!</h2>
-        <h3>Start a sale now!</h3>
+
+      <a href='/create-sale'><img src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/START%20SELLING%20YOUR%20PRODUCTS%20TODAY!.gif" alt="" /></a>
     </div>
   )
 }

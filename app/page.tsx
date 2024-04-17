@@ -8,7 +8,6 @@ import "./Styles/header.scss";
 import SideBar from "@/components/SideBar";
 import SaleCard from "@/components/SaleCard";
 import { redirect } from "next/navigation";
-import CircularProgress from "@mui/material/CircularProgress";
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
@@ -44,7 +43,6 @@ export default async function Index() {
             Welcome to <span className="font-bold">Buy In Cyprus</span>
           </h1>
           <h1>This page will be replaced soon, we are working on it.</h1>
-          <CircularProgress />
         </main>
       </div>
     </div>

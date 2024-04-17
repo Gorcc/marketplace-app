@@ -38,7 +38,7 @@ export default function RecipeReviewCard(props) {
   };
 
   return (
-    <Card className="sale-card" sx={{ maxWidth: 320 }}>
+    <Card className="sale-card" sx={{ width: 400 }}>
       <CardHeader
         avatar={
           <Avatar className="post-avatar" sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -73,6 +73,7 @@ export default function RecipeReviewCard(props) {
         <div className="post-seller">
           <h1 className="font-bold">{post.post_username}</h1>
           <p>9.7 / 10</p>
+          <h1 className="font-bold">{post.price}₺</h1>
         </div>
       </CardActions>
     </Card>

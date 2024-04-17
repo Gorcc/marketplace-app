@@ -10,14 +10,14 @@ import MenuItem from "@mui/material/MenuItem";
 
 const CreateSale = ({ user }) => {
   const supabase = createClient();
-  
+
   const [showAlert, setShowAlert] = useState(false);
   const [showBadAlert, setShowBadAlert] = useState(false);
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const [tags, setTags] = useState([]);
   const [image, setImage] = useState(null);
-
+  const [price, setPrice] = useState(0)
   const handleCreateSale = async () => {
     try {
       const avatarFile = image;
@@ -28,9 +28,9 @@ const CreateSale = ({ user }) => {
         .upload(filePath, avatarFile, {
           cacheControl: "3600",
           upsert: false,
-         
+
         });
-        console.log(imageData);
+      console.log(imageData);
       const { data, error } = await supabase.from("posts").insert([
         {
           post_username: user[0].user_name,
@@ -38,7 +38,8 @@ const CreateSale = ({ user }) => {
           post_title: postTitle,
           user_id: user[0].id,
           tags: tags,
-          img_url:`${fileURL}${image.name}`
+          price:price,
+          img_url: `${fileURL}${image.name}`
         },
       ]);
 
@@ -120,7 +121,7 @@ const CreateSale = ({ user }) => {
             )}
           </div>
           <div>
-         
+
             <TextField
               required
               id="post-title"
@@ -140,6 +141,18 @@ const CreateSale = ({ user }) => {
               onChange={(e) => setPostDescription(e.target.value)}
               multiline
               rows={4}
+              fullWidth
+              className="mb-4"
+            />
+             <TextField
+              required
+              id="post-price"
+              label="Price"
+              variant="outlined"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              multiline
+              rows={1}
               fullWidth
               className="mb-4"
             />

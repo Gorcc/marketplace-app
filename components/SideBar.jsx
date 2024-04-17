@@ -12,10 +12,7 @@ const SideBar = () => {
     <div className="sidebar-container">
       <div className="sidebar-elem">
         <div className="sidebar-header">
-          <FontAwesomeIcon
-            className="sidebar-icon"
-            icon={faCar}
-          ></FontAwesomeIcon>
+         
           <h2>Cars</h2>
         </div>
         <a>Sports</a>
@@ -25,10 +22,7 @@ const SideBar = () => {
       </div>
       <div className="sidebar-elem">
         <div className="sidebar-header">
-          <FontAwesomeIcon
-            className="sidebar-icon"
-            icon={faLaptop}
-          ></FontAwesomeIcon>
+          
           <h2>Electronics</h2>
         </div>
         <a

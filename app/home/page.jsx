@@ -44,6 +44,8 @@ export default async function ProtectedPage() {
             <AuthButton />
           </div>
         </div>
+        
+    
       </nav>
 
       <div className="animate-in flex-1 flex flex-col  opacity-0 w-full ">
