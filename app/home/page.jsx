@@ -10,6 +10,8 @@ import SideBar from "@/components/SideBar";
 import SaleCard from "@/components/SaleCard";
 import MarketLine from "@/components/MarketLine";
 import SaleComponent from "@/components/SaleComponent";
+import Image from "next/image"
+import "../Styles/Landing.scss"
 export default async function ProtectedPage() {
   const supabase = createClient();
 
@@ -38,7 +40,7 @@ export default async function ProtectedPage() {
     <div className="flex-1 w-full flex flex-col  items-center">
       <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 header">
         <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
-          <h1 className="logo-text">BuyInCyprus</h1>
+         <Image className="" src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/ilancık.png" width={100} height={100}></Image>
           <div className="flex items-center gap-10">
             <SaleButton></SaleButton>
             <AuthButton />
