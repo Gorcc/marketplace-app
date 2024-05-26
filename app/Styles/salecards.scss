@@ -10,6 +10,7 @@
 
 
 .card-header {
+  height: 100px;
   span:first-child {
     font-weight: 700;
     text-transform: uppercase;
@@ -20,6 +21,7 @@
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   transition: 0.3s all ease;
+  margin-bottom: 16px;
 }
 .sale-card:hover{
   -webkit-box-shadow: 0px 0px 21px -7px rgba(0,0,0,0.75);

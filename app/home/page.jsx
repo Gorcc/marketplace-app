@@ -83,15 +83,7 @@ export default async function ProtectedPage({ searchParams }) {
               height={100}
               alt="Logo"
             />
-            <form action="" method="GET" className="mx-12">
-              <input
-                type="text"
-                name="search"
-                placeholder="Search products"
-                defaultValue={searchTerm}
-              />
-              <button type="submit">Send</button>
-            </form>
+        
           </div>
 
           <div className="flex header-items items-center gap-10">

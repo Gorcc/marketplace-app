@@ -17,12 +17,7 @@ const Page = () => {
       <Box className='flex flex-wrap justify-center'>
         {teamMembers.map((member, index) => (
           <Card key={index} sx={{ maxWidth: 345, m: 2 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="https://via.placeholder.com/140"
-              alt={member.name}
-            />
+          
             <CardContent>
               <Typography variant="h5" component="div">{member.name}</Typography>
               <Typography variant="body2" color="text.secondary">{member.id}</Typography>

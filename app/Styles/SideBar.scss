@@ -67,3 +67,8 @@
     font-weight: 500;
   }
 }
+@media screen and (max-width: 1000px) {
+  .sidebar-container {
+    display: none;
+  }
+}
