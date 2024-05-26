@@ -82,6 +82,8 @@ const Checkout = () => {
     return (
       <div className="flex flex-col items-center justify-center">
         <Header />
+        <h1 className="mt-24 mb-12 font-bold text-xl">Trying to fetch cart items if this takes more than 10 seconds your wishlists might be empty.</h1>
+
         <CircularProgress />
       </div>
     );

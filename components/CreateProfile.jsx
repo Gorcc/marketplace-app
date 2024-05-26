@@ -43,7 +43,7 @@ const CreateProfile = ({ user }) => {
 
   return (
     <div className="info-img flex w-screen items-center justify-around ml-24">
-      <img style={{width:400,objectFit:"cover",height:600}} src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/Home%20(1).png" alt="" />
+      <img style={{width:600,objectFit:"cover",height:600}} src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/Home%20(1).png" alt="" />
     <div className="flex flex-col items-center justify-center h-screen w-full">
       <h1 className="text-3xl font-bold mb-8">Account Information</h1>
       {showAlert && (

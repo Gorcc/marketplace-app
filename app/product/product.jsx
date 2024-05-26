@@ -16,6 +16,7 @@ import {
   faHeartCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
+import Footer from "@/components/Footer";
 
 const Product = () => {
   const [pid, setPid] = useState("");
@@ -136,7 +137,7 @@ const Product = () => {
             </a>
           </div>
 
-          <div className="product-container flex">
+          <div className="product-container flex mb-8">
             <div className="product-left">
               <h1 className="prod_title">{post.post_title}</h1>
               <span className="post_tags">{post.tags}</span>
@@ -187,6 +188,7 @@ const Product = () => {
               </div>
             </div>
           </div>
+          <Footer></Footer>
         </>
       ) : (
         <div className="flex flex-col items-center justify-center">
@@ -204,6 +206,7 @@ const Product = () => {
           {alertMessage}
         </Alert>
       </Snackbar>
+      
     </div>
   );
 };

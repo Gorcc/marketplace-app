@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className=" w-full">
+    <footer className="w-full" style={{ backgroundColor: "#212121" }}>
       <div className="container px-6 py-8 mx-auto">
         <div className="flex flex-col items-center text-center">
           <a href="#">
@@ -34,7 +34,7 @@ const Footer = () => {
               <a href="https://github.com/Gorcc/marketplace-app" target="blank">Github</a>
             </button>
 
-            <a href="/login" className="w-full px-5 py-2 text-sm tracking-wide text-black capitalize transition-colors duration-300 transform bg-yellow-400 rounded-md sm:mx-2 sm:order-2 sm:w-auto hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+            <a href="/home" className="w-full px-5 py-2 text-sm tracking-wide text-black capitalize transition-colors duration-300 transform bg-yellow-400 rounded-md sm:mx-2 sm:order-2 sm:w-auto hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
               Get started
             </a>
           </div>

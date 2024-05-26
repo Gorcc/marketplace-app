@@ -16,7 +16,7 @@ const CreateSale = ({ user }) => {
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const [tags, setTags] = useState([]);
-  const [condition, setCondition] = useState([]);
+  const [condition, setCondition] = useState();
   const [image, setImage] = useState(null);
   const [price, setPrice] = useState(0);
   const [location, setLocation] = useState(null);
@@ -199,8 +199,8 @@ const CreateSale = ({ user }) => {
               fullWidth
               className="mb-4"
             >
-              <MenuItem value="Vehicle">Brand New</MenuItem>
-              <MenuItem value="Electronics">Second Hand</MenuItem>
+              <MenuItem value="Brand New">Brand New</MenuItem>
+              <MenuItem value="Second Hand">Second Hand</MenuItem>
               
             </TextField>
 

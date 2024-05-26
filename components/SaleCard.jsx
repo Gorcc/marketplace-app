@@ -34,44 +34,48 @@ export default function RecipeReviewCard({ post }) {
     setExpanded(!expanded);
   };
 
-
-
   return (
-   
-      <a href={`/product/${post.post_id}`}>
-        <Card className="sale-card" sx={{ width: 400 }}>
-          <CardHeader
-            className="card-header"
-            avatar={
-              <Avatar className="post-avatar" sx={{ bgcolor: blue[500] }} aria-label="recipe">
-                {postName}
-              </Avatar>
-            }
-            title={post.post_title}
-            subheader={post.created_at}
-          />
-          <CardMedia
-            component="img"
-            height="194"
-            className="salecard-image"
-            image={post.img_url}
-            alt="Post Image"
-          />
-          <CardContent className="card-descb">
-            <Typography variant="body2" color="text.secondary">
-              {post.post_descb}
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing className="card-extras">
-           <p className="font-bold">{post.tags}</p>
-            <div className="post-seller">
-              <h1 className="font-bold">{post.post_username}</h1>
-              
-              <h1 className="font-bold">{post.price}₺</h1>
-            </div>
-          </CardActions>
-        </Card>
-      </a>
-    
+    <a href={`/product/${post.post_id}`}>
+      <Card className="sale-card" sx={{ width: 400 }}>
+        <CardHeader
+          className="card-header"
+          avatar={
+            <Avatar
+              className="post-avatar"
+              sx={{ bgcolor: blue[500] }}
+              aria-label="recipe"
+            >
+              {postName}
+            </Avatar>
+          }
+          title={post.post_title}
+          subheader={post.created_at}
+        />
+        <CardMedia
+          component="img"
+          height="194"
+          className="salecard-image"
+          image={post.img_url}
+          alt="Post Image"
+        />
+        <CardContent className="card-descb">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="overflow-hidden text-ellipsis whitespace-nowrap"
+          >
+            {post.post_descb}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing className="card-extras">
+          <p className="font-bold">{post.tags}</p>
+          <div className="post-seller">
+            <h1 className="font-bold">{post.post_username}</h1>
+
+            <h1 className="font-bold">{post.price}₺</h1>
+          </div>
+        </CardActions>
+      </Card>
+    </a>
   );
 }

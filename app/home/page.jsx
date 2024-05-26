@@ -17,37 +17,59 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faStore } from "@fortawesome/free-solid-svg-icons";
 import { faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import Footer from "@/components/Footer";
+
 export default async function ProtectedPage({ searchParams }) {
   const supabase = createClient();
 
+  // Get the current user
   const {
     data: { user },
+    error: userError
   } = await supabase.auth.getUser();
-  const { data: existingUsers, error } = await supabase
-    .from("users")
-    .select()
-    .eq("id", user?.id)
-    .single();
 
-  if (!user) {
+  if (!user || userError) {
     return redirect("/login");
   }
 
-  if (existingUsers.user_name == null || existingUsers.user_name == "") {
+  // Check if user exists in the "users" table
+  let { data: existingUser, error: existingUserError } = await supabase
+    .from("users")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  // If the user does not exist, insert the new user
+  if (existingUserError) {
+    const { data: newUser, error: insertError } = await supabase
+      .from("users")
+      .insert([{ id: user.id, user_mail: user.email }])
+      .select("*")
+      .single();
+
+    if (insertError) {
+      console.error("Insert Error:", insertError.message);
+      return redirect("/login?message=Failed to insert user");
+    }
+
+    existingUser = newUser;
+  }
+
+  // Redirect to profile if user_name is missing
+  if (!existingUser.user_name) {
     return redirect("/profile");
   }
 
   const searchTerm = searchParams?.search || "";
 
-  const { data: posts } = await supabase
+  // Fetch posts based on search term
+  const { data: posts, error: postsError } = await supabase
     .from("posts")
-    .select()
+    .select("*")
     .ilike("post_title", `%${searchTerm}%`);
 
-  if (!existingUsers) {
-    const { data: newUser, error: insertError } = await supabase
-      .from("users")
-      .insert([{ id: user?.id, user_mail: user?.email }]);
+  if (postsError) {
+    console.error("Posts Error:", postsError.message);
   }
 
   return (
@@ -56,11 +78,11 @@ export default async function ProtectedPage({ searchParams }) {
         <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
           <div className="flex justify-center items-center">
             <Image
-              className=""
               src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/ilancık%20(2).png"
               width={100}
               height={100}
-            ></Image>
+              alt="Logo"
+            />
             <form action="" method="GET" className="mx-12">
               <input
                 type="text"
@@ -73,20 +95,24 @@ export default async function ProtectedPage({ searchParams }) {
           </div>
 
           <div className="flex header-items items-center gap-10">
-          <a href="/wishlists"><FontAwesomeIcon className="mx-2" icon={faHeart}></FontAwesomeIcon>Wishlist</a>
-            <SaleButton></SaleButton>
-           
+            <a href="/wishlists">
+              <FontAwesomeIcon className="mx-2" icon={faHeart} />
+              Wishlist
+            </a>
+            <SaleButton />
             <AuthButton />
           </div>
         </div>
       </nav>
 
-      <div className="animate-in flex-1 flex flex-col  opacity-0 w-full ">
-        <SaleComponent user={existingUsers} post={posts}></SaleComponent>
+      <div className="animate-in flex-1 flex flex-col opacity-0 w-full ">
+        <SaleComponent user={existingUser} post={posts} />
 
         <SideBar />
         <main className="flex-1 flex flex-col gap-6"></main>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 }

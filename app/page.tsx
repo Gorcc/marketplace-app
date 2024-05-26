@@ -50,7 +50,7 @@ export default async function Index() {
       <div className="animate-in flex-1 flex flex-col h-full w-full">
         <main className="landing-1">
           <div className="main-left text-center">
-            <h1 className="mt-20 font-bold flex justify-center items-center">
+            <h1 className=" font-bold flex justify-center items-center">
               Welcome to ilancık !
             </h1>
             <h2 className="font-bold text-l">Where you can Buy & Sell</h2>
