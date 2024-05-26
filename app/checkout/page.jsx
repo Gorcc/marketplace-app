@@ -161,7 +161,7 @@ const Checkout = () => {
               fullWidth
               className="mb-4"
             />
-            <Button variant="outlined">Proceed</Button>
+            <Button variant="outlined" href="/payment-failed">Proceed</Button>
             
         </div>
         <CreditcardComponent name={cardName} card={cardNumber} valid={cardValid} exp={cardExpity} cvv={cvv}/>
