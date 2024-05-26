@@ -1,0 +1,35 @@
+.cart-container{
+    
+    img{
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border: 1px solid black;
+        padding: 4px;
+        border-radius: 100%;
+    }
+
+    a{
+        border: 1px solid rgba(128, 128, 128, 0.26);
+        padding: 12px;
+        transition: 0.3s all ease;
+    }
+
+   
+
+
+}
+.wishlists-container a:hover{
+    background-color: #212121;
+    color: white;
+}
+
+.w-header{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 32px;
+}
+
+
+.card-info{
+    width: 400px;
+}

@@ -52,7 +52,7 @@ export default function Login({
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 login" >
       <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
@@ -96,7 +96,7 @@ export default function Login({
         />
         <SubmitButton
           formAction={signIn}
-          className="bg-blue-700 rounded-md px-4 py-2 text-white mb-2 transition hover:bg-blue-600"
+          className="bg-yellow-400 text-black rounded-md px-4 py-2 mb-2 transition hover:bg-yellow-500 font-bold"
           pendingText="Signing In..."
         >
           Sign In

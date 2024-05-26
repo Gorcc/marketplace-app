@@ -1,0 +1,84 @@
+.product-container {
+  width: 100vw;
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-around;
+  .product-left {
+    width: 30%;
+    .prod_title {
+      font-size: 120px;
+      text-transform: uppercase;
+      font-family: "Bebas Neue", sans-serif;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100%;
+      line-height: 95%;
+    }
+    .post_tags {
+      color: gray;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 42px;
+
+      
+    }
+    p {
+      color: gray;
+    }
+  }
+
+  .seller-info {
+    width: 100%;
+    margin: 12px 0;
+    span {
+      font-weight: normal;
+    }
+    hr {
+      margin: 20px 0;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: bold;
+    }
+  }
+}
+
+.image-container {
+  border: 2px solid rgba(0, 0, 0, 0.281);
+  border-radius: 15%;
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+.backbutton{
+  margin: 40px;
+}
+.back-btn {
+  border: 2px solid black;
+  padding: 6px;
+  border-radius: 10%;
+  transition: 0.3s all ease;
+
+  
+}
+
+.back-btn:hover{
+  background-color: #212121;
+  color: white;
+}
+
+
+.favorite-ico{
+  width: 26px;
+  height: 26px;
+  color: red;
+  transition: 0.3s all ease;
+  padding: 8px;
+  border-radius: 100%;
+}
+
+.favorite-ico:hover{
+  background-color: #212121;
+}

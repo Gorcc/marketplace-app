@@ -9,7 +9,12 @@ import "../Styles/header.scss";
 import SideBar from "@/components/SideBar";
 import CreateProfile from "@/components/CreateProfile";
 import { data } from "autoprefixer";
-import Image from "next/image"
+import Image from "next/image";
+import { Alert } from "@mui/material";
+import CheckIcon from '@mui/icons-material/Check';
+
+
+
 export default async function ProtectedPage() {
   const supabase = createClient();
 
@@ -26,24 +31,21 @@ export default async function ProtectedPage() {
     return redirect("/login");
   }
 
+  console.log(userData[0].user_name)
   return (
     <div className="flex-1 w-full flex flex-col  items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 header">
-        <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
-          <a href="/home" className="logo-text">
-          <Image className="" alt="Logo" src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/ilancık.png" width={100} height={100}></Image>
-
-          </a>
-          <div className="flex items-center gap-10">
-            <AuthButton />
-          </div>
-        </div>
-      </nav>
+     <Header></Header>
 
       <div className="animate-in flex-1 flex flex-col  opacity-0 w-full  ">
+      {(userData[0].user_name ==  null || userData[0].user_name == "") && (
+                <Alert className="flex w-full justify-center" icon={<CheckIcon fontSize="inherit" />} severity="warning">
+                    <h1 className="text-center w-full">You need to finalize your profile.</h1>
+                </Alert>
+            )}
         <CreateProfile user={userData}></CreateProfile>
         <main className="flex-1 flex flex-col gap-6"></main>
       </div>
+    
     </div>
   );
 }

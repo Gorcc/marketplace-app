@@ -7,7 +7,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Marketplace App",
+  title: "Ilancık",
   description: "Best way to shop in North Cyprus",
 };
 

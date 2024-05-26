@@ -14,6 +14,8 @@ const CreateProfile = ({ user }) => {
   const [username, setUsername] = useState(user[0].user_name);
   const [name, setName] = useState(user[0].name);
   const [surname, setSurname] = useState(user[0].surname);
+  const [adress,setAdress] = useState(user[0].adress);
+  const [phone,setPhone] = useState(user[0].user_phone)
 
   const handleUpdateProfile = async () => {
     try {
@@ -23,6 +25,8 @@ const CreateProfile = ({ user }) => {
           user_name: username,
           name: name,
           surname: surname,
+          user_phone:phone,
+          adress:adress
         })
         .eq("id", user[0].id);
       if (error) {
@@ -38,8 +42,10 @@ const CreateProfile = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-8">Profile</h1>
+    <div className="info-img flex w-screen items-center justify-around ml-24">
+      <img style={{width:400,objectFit:"cover",height:600}} src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/Home%20(1).png" alt="" />
+    <div className="flex flex-col items-center justify-center h-screen w-full">
+      <h1 className="text-3xl font-bold mb-8">Account Information</h1>
       {showAlert && (
         <Alert className="m-4" variant="filled" severity="success">
           Profile updated successfully.
@@ -94,6 +100,22 @@ const CreateProfile = ({ user }) => {
           }}
           variant="outlined"
         />
+        <TextField
+        label="Phone Number"
+          id="phone"
+          defaultValue={user[0].user_phone}
+          onChange={(e) => setPhone(e.target.value)}
+        
+          variant="outlined"
+        />
+         <TextField
+        label="Full Adress"
+          id="adress"
+          defaultValue={user[0].adress}
+          onChange={(e) => setAdress(e.target.value)}
+        
+          variant="outlined"
+        />
         <Fab
           color="black"
           aria-label="edit"
@@ -105,6 +127,8 @@ const CreateProfile = ({ user }) => {
           <EditIcon />
         </Fab>
       </Box>
+    </div>
+    
     </div>
   );
 };

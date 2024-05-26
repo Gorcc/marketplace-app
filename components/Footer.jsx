@@ -49,7 +49,7 @@ const Footer = () => {
 
           <div className="flex mt-3 -mx-2 sm:mt-0">
             <a
-              href="#"
+              href="/team"
               className="mx-2 text-sm text-white transition-colors duration-300 hover:text-white dark:hover:text-gray-300"
               aria-label="Reddit"
             >

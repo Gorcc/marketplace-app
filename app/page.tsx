@@ -69,7 +69,7 @@ export default async function Index() {
         </main>
         <div className="landing-2 flex flex-col items-center justify-center">
           <h1 className="m-20">ANYTHING YOU'RE LOOKING FOR</h1>
-          <div className="carousel carousel-center rounded-box">
+          <div className="carousel flex carousel-center rounded-box">
             <div className="carousel-item">
               <img
                 src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg"
