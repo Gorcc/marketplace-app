@@ -37,7 +37,7 @@
     }
     .main-right{
         background-color: #212121;
-     
+        
         
         width: 50%;
        
@@ -46,6 +46,7 @@
 
         img{
             object-fit: contain;
+            animation: myAnim 1s ease 2s 1 normal forwards;
         }
     }
 
@@ -69,4 +70,32 @@
 
 .landing{
     background-color: #212121;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateY(-8px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateY(8px);
+	}
+
+	80% {
+		transform: translateY(6.4px);
+	}
+
+	90% {
+		transform: translateY(-6.4px);
+	}
 }

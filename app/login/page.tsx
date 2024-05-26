@@ -3,8 +3,13 @@ import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
+import "../Styles/base.scss"
 
-export default function Login({ searchParams }: { searchParams: { message: string } }) {
+export default function Login({
+  searchParams,
+}: {
+  searchParams: { message: string };
+}) {
   const signIn = async (formData: FormData) => {
     "use server";
 
@@ -12,7 +17,10 @@ export default function Login({ searchParams }: { searchParams: { message: strin
     const password = formData.get("password") as string;
     const supabase = createClient();
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
     if (error) {
       console.error("SignIn Error:", error.message);
@@ -48,6 +56,14 @@ export default function Login({ searchParams }: { searchParams: { message: strin
 
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 login">
+      <div className="login-img">
+        {" "}
+        <img
+          src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/ilancık%20(2).png"
+          alt=""
+        />
+      </div>
+
       <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
