@@ -25,5 +25,5 @@ This project was built using the following technologies.
 
 * **Frontend:** [**Next.js**](https://nextjs.org/) / [**React**](https://reactjs.org/)
 * **Backend & Database:** [**Supabase**](https://supabase.io/) - Used for database, authentication, and storage.
-* **Styling:** [e.g., Tailwind CSS, Material-UI - **REPLACE THIS**]
+* **Styling:** [ Tailwind CSS, Material-UI ]
 
