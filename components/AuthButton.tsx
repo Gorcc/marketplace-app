@@ -1,6 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faUserTag } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default async function AuthButton() {
   const supabase = createClient();
@@ -20,10 +23,11 @@ export default async function AuthButton() {
   return user ? (
     <div className="flex items-center gap-4">
     
-      <a href="/profile">Profile</a>
+    <a href="/profile"><FontAwesomeIcon className="mx-2" icon={faUserTag}></FontAwesomeIcon>Profile</a>
+    <a href="/checkout"><FontAwesomeIcon className="mx-2" icon={faCartShopping}></FontAwesomeIcon>Cart</a>
       <form action={signOut}>
         <button className="py-2 px-4 rounded-md no-underline bg-btn-background hover:bg-btn-background-hover">
-          Logout
+        <FontAwesomeIcon className="mx-2" icon={faArrowLeft}></FontAwesomeIcon>Logout
         </button>
       </form>
     </div>

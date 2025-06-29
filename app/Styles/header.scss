@@ -4,7 +4,20 @@
 }
 
 .header{
+    width: 100vw;
     background-color: #212121;
     border: none;
     color: white;
+}
+
+.header-items{
+    button{
+        display: flex;
+    }
+    a{
+        display: flex;
+    }
+    svg{
+        height: 16px;
+    }
 }

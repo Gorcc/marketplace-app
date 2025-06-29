@@ -1,0 +1,101 @@
+.landing-1{
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+    height: 100vh;
+
+    .main-left{
+        font-size: 80px;
+        background-color: gold;
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 2px;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+        
+
+        a{
+            background-color: black;
+            font-weight: bold;
+            font-size: 40px;
+            color: gold;
+            letter-spacing: 0;
+            padding: 12px;
+            border: 5px solid black;
+            transition: 0.3s all ease;
+        }
+        a:hover{
+            background-color: gold;
+            color: black;
+        }
+    }
+    .main-right{
+        background-color: #212121;
+        
+        
+        width: 50%;
+       
+        display: flex;
+        justify-content: center;
+
+        img{
+            object-fit: contain;
+            animation: myAnim 1s ease 2s 1 normal forwards;
+        }
+    }
+
+
+    .changing-text{
+        font-size: 96px;
+        font-weight: bold;
+    }
+}
+
+.landing-2{
+    margin-top: 40px;
+    background-color: #212121 !important;
+    font-family: "Bebas Neue", sans-serif;
+
+    h1{
+        font-size: 96px;
+        color: white;
+    }
+}
+
+.landing{
+    background-color: #212121;
+}
+
+@keyframes myAnim {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateY(-8px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateY(8px);
+	}
+
+	80% {
+		transform: translateY(6.4px);
+	}
+
+	90% {
+		transform: translateY(-6.4px);
+	}
+}

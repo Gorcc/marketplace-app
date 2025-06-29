@@ -16,20 +16,21 @@ const CreateSale = ({ user }) => {
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const [tags, setTags] = useState([]);
+  const [condition, setCondition] = useState();
   const [image, setImage] = useState(null);
-  const [price, setPrice] = useState(0)
+  const [price, setPrice] = useState(0);
   const [location, setLocation] = useState(null);
   const handleCreateSale = async () => {
     try {
       const avatarFile = image;
       const filePath = `images/${avatarFile.name}`;
-      const fileURL = "https://fdermimfvizrllvawuib.supabase.co/storage/v1/object/public/post_images/images/"
+      const fileURL =
+        "https://fdermimfvizrllvawuib.supabase.co/storage/v1/object/public/post_images/images/";
       const { imageData, imgError } = await supabase.storage
         .from("post_images")
         .upload(filePath, avatarFile, {
           cacheControl: "3600",
           upsert: false,
-
         });
       console.log(imageData);
       const { data, error } = await supabase.from("posts").insert([
@@ -39,9 +40,11 @@ const CreateSale = ({ user }) => {
           post_title: postTitle,
           user_id: user[0].id,
           tags: tags,
-          price:price,
-          location:location,
-          img_url: `${fileURL}${image.name}`
+          price: price,
+          location: location,
+          img_url: `${fileURL}${image.name}`,
+          poster_phone: user[0].user_phone,
+          condition: condition,
         },
       ]);
 
@@ -123,7 +126,6 @@ const CreateSale = ({ user }) => {
             )}
           </div>
           <div>
-
             <TextField
               required
               id="post-title"
@@ -146,7 +148,7 @@ const CreateSale = ({ user }) => {
               fullWidth
               className="mb-4"
             />
-             <TextField
+            <TextField
               required
               id="post-price"
               label="Price"
@@ -166,38 +168,44 @@ const CreateSale = ({ user }) => {
               value={tags}
               onChange={(e) => setTags(e.target.value)}
               fullWidth
-              SelectProps={{
-                multiple: true,
-              }}
               className="mb-4"
             >
-
               <MenuItem value="Vehicle">Vehicle</MenuItem>
               <MenuItem value="Electronics">Electronics</MenuItem>
               <MenuItem value="Fashion">Fashion</MenuItem>
+              <MenuItem value="Outdoor">Outdoor</MenuItem>
+              <MenuItem value="Home Decor">Home Decor</MenuItem>
+              <MenuItem value="Other">Other</MenuItem>
             </TextField>
 
             <TextField
-                required
-                id="location"
-                label="Location"
-                variant="outlined"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                fullWidth
-                rows={1}
-                className="mb-4"
+              required
+              id="location"
+              label="Location"
+              variant="outlined"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              fullWidth
+              rows={1}
+              className="mb-4"
             />
+            <TextField
+              select
+              id="condition"
+              label="Condition"
+              variant="outlined"
+              value={condition}
+              onChange={(e) => setCondition(e.target.value)}
+              fullWidth
+              className="mb-4"
+            >
+              <MenuItem value="Brand New">Brand New</MenuItem>
+              <MenuItem value="Second Hand">Second Hand</MenuItem>
+              
+            </TextField>
 
             <div className="tag-container flex flex-wrap mb-4">
-              {tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="inline-block px-2 mr-2 mb-2 py-2 font-bold text-sm border-2 border-dotted border-black rounded-lg text-white bg-gray-800"
-                >
-                  {tag}
-                </span>
-              ))}
+             
             </div>
 
             <Fab

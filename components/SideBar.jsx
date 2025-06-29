@@ -1,49 +1,29 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import "../app/Styles/SideBar.scss";
-import { faCar } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLaptop } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
-const SideBar = () => {
-  const [menu, setMenu] = useState(false);
+const SideBar = ({ onTagClick }) => {
+  const tags = ["Vehicle", "Electronics", "Outdoor", "Fashion", "Home Decor", "Other"];
 
   return (
     <div className="sidebar-container">
       <div className="sidebar-elem">
         <div className="sidebar-header">
          
-          <h2>Cars</h2>
+            <a href="/search">
+              Search <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </a>
+      
         </div>
-        <a>Sports</a>
-        <a>SUV's</a>
-        <a>StationWagon</a>
-        <a>Off-Road</a>
-      </div>
-      <div className="sidebar-elem">
-        <div className="sidebar-header">
-          
-          <h2>Electronics</h2>
-        </div>
-        <a
-          onClick={() => {
-            setMenu((prevMenu) => !prevMenu);
-          }}
-        >
-          Phones ᐯ
-        </a>
-
-        {menu && (
-          <div className="secret-menu">
-            <a href="">Iphone</a>
-            <a href="">Samsung</a>
-            <a href="">Google Pixel</a>
-            <a href="">OnePlus</a>
+        {tags.map((tag) => (
+          <div key={tag} className="sidebar-header">
+            <Link legacyBehavior href={`/filter/${tag}`} passHref>
+              {tag}
+            </Link>
           </div>
-        )}
-        <a>Computers</a>
-        <a>Tv's</a>
-        <a>House Electronics</a>
+        ))}
       </div>
     </div>
   );

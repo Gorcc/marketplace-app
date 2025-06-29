@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { SubmitButton } from "./submit-button";
+import "../Styles/base.scss"
 
 export default function Login({
   searchParams,
@@ -22,7 +23,8 @@ export default function Login({
     });
 
     if (error) {
-      return redirect("/login?message=Could not authenticate user");
+      console.error("SignIn Error:", error.message);
+      return redirect(`/login?message=${encodeURIComponent(error.message)}`);
     }
 
     return redirect("/home");
@@ -45,14 +47,23 @@ export default function Login({
     });
 
     if (error) {
-      return redirect("/login?message=Could not authenticate user");
+      console.error("SignUp Error:", error.message);
+      return redirect(`/login?message=${encodeURIComponent(error.message)}`);
     }
 
     return redirect("/login?message=Check email to continue sign in process");
   };
 
   return (
-    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
+    <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 login">
+      <div className="login-img">
+        {" "}
+        <img
+          src="https://cdn.jsdelivr.net/gh/Gorcc/cdn@main/marketplaceapp/ilancık%20(2).png"
+          alt=""
+        />
+      </div>
+
       <Link
         href="/"
         className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
@@ -96,7 +107,7 @@ export default function Login({
         />
         <SubmitButton
           formAction={signIn}
-          className="bg-blue-700 rounded-md px-4 py-2 text-white mb-2 transition hover:bg-blue-600"
+          className="bg-yellow-400 text-black rounded-md px-4 py-2 mb-2 transition hover:bg-yellow-500 font-bold"
           pendingText="Signing In..."
         >
           Sign In

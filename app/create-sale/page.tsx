@@ -9,6 +9,7 @@ import "../Styles/header.scss";
 import SideBar from "@/components/SideBar";
 import CreateSale from "@/components/CreateSale";
 import { data } from "autoprefixer";
+import Image from "next/image";
 export default async function ProtectedPage() {
   const supabase = createClient();
 
@@ -27,16 +28,7 @@ export default async function ProtectedPage() {
 
   return (
     <div className="flex-1 w-full flex flex-col  items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16 header">
-        <div className="w-full m-4 flex justify-between items-center p-3 text-sm">
-          <a href="/home" className="logo-text">
-            Marketplace App
-          </a>
-          <div className="flex items-center gap-10">
-            <AuthButton />
-          </div>
-        </div>
-      </nav>
+      <Header></Header>
 
       <div className="animate-in flex-1 flex flex-col  opacity-0 w-full  ">
         <CreateSale user={userData}></CreateSale>

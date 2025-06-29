@@ -3,12 +3,16 @@
 @tailwind utilities;
 
 
-
+html{
+  overflow-x:hidden
+}
 @layer base {
   * {
     @apply border-foreground/20;
   }
 }
+
+
 
 .animate-in {
   animation: animateIn 0.3s ease 0.15s both;
@@ -24,3 +28,5 @@
     transform: translateY(0);
   }
 }
+
+
